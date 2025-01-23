@@ -13,7 +13,7 @@ function Home(){
             <Features/>
             <About/>
             <Login/>
-            <Contact/>
+            {/* <Contact/> */}
         </div>
     )
 }

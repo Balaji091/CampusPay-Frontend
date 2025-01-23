@@ -51,10 +51,7 @@
 }
 
 /* Web Name */
-.webName {
-    font-size: 1rem;
-    color: #555555; /* Subtle gray */
-}
+
 
 /* Navigation Container */
 .navContainer {
@@ -92,7 +89,7 @@
 }
 
 .navLink:hover {
-    color: red; /* Professional blue */
+    color:rgb(38, 38, 206); /* Professional blue */
 }
 
 /* Login Button */
