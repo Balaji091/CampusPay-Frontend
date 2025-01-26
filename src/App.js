@@ -20,7 +20,6 @@ function App() {
         <Route path='/user/signup' element={<Signup />} />
 
         {/* Protected Routes */}
-        <Route path='/user/home' element={<ProtectedRoute><UserHome /></ProtectedRoute>} />
         <Route path='/user/payments' element={<ProtectedRoute><PaymentsComponent /></ProtectedRoute>} />
         <Route path='/user/paymentDetails/:paymentId' element={<ProtectedRoute><PaymentDetails /></ProtectedRoute>} />
         <Route path='/user/addPayment' element={<ProtectedRoute><UploadPaymentComponent /></ProtectedRoute>} />
@@ -30,5 +29,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

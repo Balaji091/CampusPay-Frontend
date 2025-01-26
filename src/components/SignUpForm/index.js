@@ -15,9 +15,10 @@ const Signup = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const validateEmail = (email) => {
-    const emailRegex = /^[rs]\d{6}@rguktsklm\.ac\.in$/;
+    const emailRegex = /^rs\d{6}@rguktsklm\.ac\.in$/;
     return emailRegex.test(email);
   };
+  
 
   const validatePhoneNumber = (phone) => {
     const phoneRegex = /^\d{10}$/;

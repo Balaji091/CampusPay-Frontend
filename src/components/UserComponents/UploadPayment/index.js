@@ -307,7 +307,7 @@ const tryAgain = () => {
 
 {showModal && (
   <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20">
-    <div className="bg-white p-6 rounded shadow-lg text-center">
+    <div className="bg-white p-10 rounded shadow-lg text-center">
       <h3
         className={`text-xl font-semibold ${
           message.includes("successfully") ? "text-green-600" : "text-red-600"

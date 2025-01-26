@@ -109,12 +109,11 @@ const ProfileComponent = () => {
 
   return (
     <>
-      <HeaderComponent />
-
+    <HeaderComponent/>
       <div className="max-w-2xl mx-auto mt-10 p-6 bg-white rounded-md">
         <div className="flex justify-between items-center mb-8">
-          <h3 className="text-2xl font-bold text-gray-800">
-            Manage your personal information
+          <h3 className="text-2xl text-left font-bold text-gray-800">
+            Manage your personal Information
           </h3>
         </div>
 

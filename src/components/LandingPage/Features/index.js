@@ -29,21 +29,19 @@ const Features = () => {
   ];
 
   return (
-    <div id="features" className="bg-gray-50 h-[480px] py-16">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <h1 className="text-4xl  text-left text-blue-600 mb-8">
+    <div id="features" className="bg-gray-50 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="text-4xl font-bold text-left text-blue-600 mb-10">
           Features
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="card bg-white shadow-lg rounded-lg p-6 text-center"
+              className="card bg-white shadow-lg rounded-lg p-6 text-center hover:shadow-xl transform hover:scale-105 transition duration-300"
             >
               <div className="text-5xl mb-4">{feature.icon}</div>
-              <h2 className="text-xl font-bold text-gray-800">
-                {feature.title}
-              </h2>
+              <h2 className="text-xl font-bold text-gray-800">{feature.title}</h2>
               <p className="mt-4 text-gray-600">{feature.description}</p>
             </div>
           ))}
