@@ -29,7 +29,7 @@ const LoginForm = () => {
           const data = await response.json();
           if (response.ok === true) {
             Cookies.set('jwtToken', data.jwtToken, { expires: 3 });
-            navigate('/user/home');
+            navigate('/user/profile');
           } else {
             setLoginStatus(data.message);
             console.log(loginStatus)

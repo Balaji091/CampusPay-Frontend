@@ -1,6 +1,6 @@
 function PaymentRowComponent({ submitteddate, phasename, courseyear, amount, status }) {
   const statusClass =
-    status === "Accepted" ? "text-green-600 bg-green-100" : "text-yellow-600 bg-yellow-100";
+    status === "Accepted" ? "text-green-600 bg-green-100" : status === "Rejected" ? "text-red-600 bg-red-100" : "text-yellow-600 bg-yellow-100";
 
   return (
     <tr className="hover:bg-gray-50">

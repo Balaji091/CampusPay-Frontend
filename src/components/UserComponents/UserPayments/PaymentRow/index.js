@@ -1,7 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function PaymentRowComponent({ paymentdate, transactionid,phasename, courseyear, amountpaid }) {
+function PaymentRowComponent({
+  paymentdate,
+  paymentid,
+  transactionid,
+  phasename,
+  courseyear,
+  amountpaid,
+}) {
   const navigate = useNavigate();
 
   // Format the payment date
@@ -10,6 +17,11 @@ function PaymentRowComponent({ paymentdate, transactionid,phasename, courseyear,
     day: "numeric",
     year: "numeric",
   });
+
+  const handleViewClick = () => {
+    // Navigate to the PaymentDetails page with the transactionid as the dynamic parameter
+    navigate(`/user/paymentDetails/${paymentid}`);
+  };
 
   return (
     <tr className="hover:bg-gray-50">
@@ -21,7 +33,7 @@ function PaymentRowComponent({ paymentdate, transactionid,phasename, courseyear,
       <td className="py-4 px-6 border-b border-gray-200">
         <button
           className="text-blue-600 hover:underline"
-          onClick={() => navigate("/user/paymentDetails")}
+          onClick={handleViewClick} // Trigger the navigation on button click
         >
           View
         </button>

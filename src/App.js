@@ -1,4 +1,4 @@
-import {Routes,Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './components/LandingPage/Home';
 import LoginForm from './components/LoginForm';
@@ -9,22 +9,26 @@ import PaymentsHistoryComponent from './components/UserComponents/UserPaymentsHi
 import PaymentsComponent from './components/UserComponents/UserPayments/Payments';
 import PaymentDetails from './components/UserComponents/UserPaymentDetails';
 import UploadPaymentComponent from './components/UserComponents/UploadPayment';
+import ProtectedRoute from './components/UserComponents/ProtectRoute'; // Import the ProtectedRoute component
+
 function App() {
   return (
     <div className="App">
-     <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/user/login' element={<LoginForm/>}/>
-          <Route path='/user/signup' element={<Signup/>}/>
-          <Route path='/user/home' element={<UserHome/>}/>
-          <Route path='/user/payments' element={<PaymentsComponent/>}/>
-          <Route path='/user/paymentDetails' element={<PaymentDetails/>}/>
-          <Route path='/user/addPayment' element={<UploadPaymentComponent/>}/>
-          <Route path='/user/paymentsHistory' element={<PaymentsHistoryComponent/>}/>
-          <Route path='/user/profile' element={<ProfileComponent/>}/>
-     </Routes>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/user/login' element={<LoginForm />} />
+        <Route path='/user/signup' element={<Signup />} />
 
-    </div>  
+        {/* Protected Routes */}
+        <Route path='/user/home' element={<ProtectedRoute><UserHome /></ProtectedRoute>} />
+        <Route path='/user/payments' element={<ProtectedRoute><PaymentsComponent /></ProtectedRoute>} />
+        <Route path='/user/paymentDetails/:paymentId' element={<ProtectedRoute><PaymentDetails /></ProtectedRoute>} />
+        <Route path='/user/addPayment' element={<ProtectedRoute><UploadPaymentComponent /></ProtectedRoute>} />
+        <Route path='/user/paymentsHistory' element={<ProtectedRoute><PaymentsHistoryComponent /></ProtectedRoute>} />
+        <Route path='/user/profile' element={<ProtectedRoute><ProfileComponent /></ProtectedRoute>} />
+      </Routes>
+    </div>
   );
 }
+
 export default App;
