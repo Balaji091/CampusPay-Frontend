@@ -10,6 +10,10 @@ import PaymentsComponent from './components/UserComponents/UserPayments/Payments
 import PaymentDetails from './components/UserComponents/UserPaymentDetails';
 import UploadPaymentComponent from './components/UserComponents/UploadPayment';
 import ProtectedRoute from './components/UserComponents/ProtectRoute'; // Import the ProtectedRoute component
+import ForgotPassword from './components/ForgotPassword';
+import ResetPassword from './components/ResetPassword';
+import { ToastContainer } from 'react-toastify'; // Import ToastContainer
+import AdminLoginForm from './components/AdminComponents/AdminLogin';
 
 function App() {
   return (
@@ -17,8 +21,10 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/user/login' element={<LoginForm />} />
+        <Route path='/admin/login' element={<AdminLoginForm />} />
         <Route path='/user/signup' element={<Signup />} />
-
+        <Route path='/user/forgot-password' element={<ForgotPassword />} />
+        <Route path='/reset-password/:token' element={<ResetPassword />} /> {/* Updated route */}
         {/* Protected Routes */}
         <Route path='/user/payments' element={<ProtectedRoute><PaymentsComponent /></ProtectedRoute>} />
         <Route path='/user/paymentDetails/:paymentId' element={<ProtectedRoute><PaymentDetails /></ProtectedRoute>} />
@@ -26,7 +32,9 @@ function App() {
         <Route path='/user/paymentsHistory' element={<ProtectedRoute><PaymentsHistoryComponent /></ProtectedRoute>} />
         <Route path='/user/profile' element={<ProtectedRoute><ProfileComponent /></ProtectedRoute>} />
       </Routes>
+      <ToastContainer /> {/* Add ToastContainer to the app */}
     </div>
   );
 }
+
 export default App;

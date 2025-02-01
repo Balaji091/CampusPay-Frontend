@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
+import 'react-toastify/dist/ReactToastify.css'; // Import the CSS for Toastify
+import ClipLoader from 'react-spinners/ClipLoader';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -12,13 +15,14 @@ const Signup = () => {
     admissionNumber: "",
     password: "",
   });
-  const [errorMessage, setErrorMessage] = useState("");
+
+  const [loading, setLoading] = useState(false); // State to handle loading
+  const [blur, setBlur] = useState(false); // State to handle background blur
 
   const validateEmail = (email) => {
     const emailRegex = /^rs\d{6}@rguktsklm\.ac\.in$/;
     return emailRegex.test(email);
   };
-  
 
   const validatePhoneNumber = (phone) => {
     const phoneRegex = /^\d{10}$/;
@@ -45,31 +49,34 @@ const Signup = () => {
     const { name, email, phone, department, yearOfStudy, admissionNumber, password } = formData;
 
     if (!name || !email || !phone || !department || !yearOfStudy || !admissionNumber || !password) {
-      setErrorMessage("All fields are required.");
+      toast.error("All fields are required.");
       return;
     }
 
     if (!validateEmail(email)) {
-      setErrorMessage("Invalid email format. Use rs123456@rguktsklm.ac.in.");
+      toast.error("Invalid email format. Use rs123456@rguktsklm.ac.in.");
       return;
     }
 
     if (!validatePhoneNumber(phone)) {
-      setErrorMessage("Phone number must be 10 digits.");
+      toast.error("Phone number must be 10 digits.");
       return;
     }
 
     if (!validateAdmissionNumber(admissionNumber)) {
-      setErrorMessage("Admission number must start with 'rs' or 's' followed by 6 digits.");
+      toast.error("Admission number must start with 'rs' or 's' followed by 6 digits.");
       return;
     }
 
     if (!validatePassword(password)) {
-      setErrorMessage(
+      toast.error(
         "Password must be at least 8 characters long, including uppercase, lowercase, number, and special character."
       );
       return;
     }
+
+    setLoading(true);  // Set loading to true
+    setBlur(true); // Set blur effect
 
     try {
       const response = await fetch("http://localhost:5001/api/user/auth/register", {
@@ -80,21 +87,32 @@ const Signup = () => {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json( );
+      const data = await response.json();
       if (response.status === 201) {
         navigate("/user/login");
       } else {
-        setErrorMessage(data.message || "An error occurred.");
+        toast.error(data.message || "An error occurred.");
       }
     } catch (error) {
-      setErrorMessage("An unexpected error occurred. Please try again.");
+      toast.error("An unexpected error occurred. Please try again.");
+    } finally {
+      setLoading(false); // Reset loading state
+      setBlur(false); // Reset blur effect
     }
   };
 
+  if (loading) {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
+        <ClipLoader color="#2563eb" size={50} />
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen flex flex-col md:flex-row bg-gray-100">
+    <div className={`min-h-screen flex flex-col md:flex-row bg-gray-100 relative ${blur ? 'blur-sm' : ''}`}>
       {/* Left Section */}
-      <div className="md:w-1/2 flex justify-center items-center bg-white">
+      <div className={`md:w-1/2 flex justify-center items-center bg-white`}>
         <img
           src="/login_avatar.avif"
           alt="Signup Avatar"
@@ -103,7 +121,7 @@ const Signup = () => {
       </div>
 
       {/* Form Section */}
-      <div className="flex flex-col md:w-1/2 items-center py-10 px-6 bg-white">
+      <div className={`flex flex-col md:w-1/2 items-center py-10 px-6 bg-white`}>
         <h2 className="text-3xl font-bold text-gray-800 mb-4">Create Your Account</h2>
 
         <form onSubmit={handleSubmit} className="w-full max-w-md">
@@ -172,15 +190,11 @@ const Signup = () => {
           <button
             type="submit"
             className="w-full bg-blue-600 text-white py-2 rounded-md text-sm font-medium shadow-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 transition duration-200"
+            disabled={loading} // Disable button when loading
           >
-            Sign Up
+            {loading ? "Signing Up..." : "Sign Up"} {/* Show loading text */}
           </button>
         </form>
-        {errorMessage && (
-          <p className="bg-red-100 text-left text-red-600 px-4 py-2 mb-4 rounded-md text-sm">
-            {errorMessage}
-          </p>
-        )}
 
         <p className="mt-4 text-sm text-gray-600">
           Already have an account?{" "}
@@ -192,9 +206,11 @@ const Signup = () => {
           </span>
         </p>
       </div>
+
+      {/* Toast Notifications Container */}
+      <ToastContainer />
     </div>
   );
 };
 
 export default Signup;
- 

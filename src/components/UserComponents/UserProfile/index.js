@@ -206,9 +206,9 @@ const ProfileComponent = () => {
 
       {/* Success Modal */}
       {isModalOpen && (
-        <div className="modal modal-open">
+        <div className="modal modal-open h-50">
           <div className="modal-box bg-blue-50">
-            <h3 className="font-bold text-lg text-blue-500">
+            <h3 className="font-bold  text-left text-lg text-blue-500">
               Profile Updated Successfully!
             </h3>
             <p className="py-4 text-gray-700">

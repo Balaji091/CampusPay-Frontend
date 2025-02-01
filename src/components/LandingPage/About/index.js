@@ -4,20 +4,20 @@ import './about.module.css';
 const About = () => {
   return (
     <div id="about" className="bg-gray-50 py-8">  {/* Background applied here */}
-      <h1 className="text-3xl text-left text-blue-600 pl-4 sm:pl-10 mb-4">
+      <h1 className="text-2xl  text-left  text-red-600 ml-8 mb-6">
         About Us
       </h1>
       <div className="hero px-4 sm:px-8"> {/* Responsive padding */}
-        <div className="hero-content flex flex-col lg:flex-row items-center lg:items-start">
+        <div className="hero-content flex flex-col lg:flex-row  lg:items-start">
           {/* Image Section */}
           <img
             src="/about3.png"
-            className="w-full max-w-sm sm:max-w-md lg:max-w-lg rounded-lg shadow-lg mb-6 lg:mb-0"
+            className="w-full max-w-sm sm:max-w-md lg:max-w-lg rounded-lg shadow-sm mb-6 lg:mb-0"
             alt="College Campus"
           />
 
           {/* Text Section */}
-          <div className="lg:ml-10 text-center lg:text-left max-w-xl">
+          <div className="lg:ml-10 sm:text-left lg:text-left max-w-xl">
             <p className="py-2 text-base sm:text-lg leading-relaxed text-gray-600">
               At CampusPay, we are dedicated to transforming how educational institutions manage their fees.
               Our cutting-edge web application ensures a seamless process for students, parents, and administrators.

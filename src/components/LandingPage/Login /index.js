@@ -5,7 +5,7 @@ const Login = () => {
   const navigate=useNavigate();
   return (
     <div  id="login"className="bg-gray-50 h-[300px] flex flex-col justify-start items-start pl-8 pr-8 pt-8">
-      <h1 className="text-3xl text-left text-blue-600 mb-8">
+      <h1 className="text-2xl  text-left  text-red-600 mb-6">
         Choose Your Login
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
