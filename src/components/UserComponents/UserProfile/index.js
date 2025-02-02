@@ -178,8 +178,9 @@ const ProfileComponent = () => {
             >
               <option value="CSE">CSE</option>
               <option value="ECE">ECE</option>
-              <option value="CCE">CCE</option>
+              <option value="CCE">CIVIL</option>
               <option value="MECH">MECH</option>
+              <option value="eee">EEE</option>
             </select>
           </div>
           <div>

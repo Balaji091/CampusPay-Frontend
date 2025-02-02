@@ -20,7 +20,7 @@ const AdminLoginForm = () => {
       }
 
       setLoading(true);
-      const apiUrl = 'http://localhost:5001/api/admin/auth/login';
+      const apiUrl = 'http://localhost:5001/api/admin/login';
       const adminDetails = { username, password };
       
       const response = await fetch(apiUrl, {
@@ -34,16 +34,19 @@ const AdminLoginForm = () => {
       if (response.ok) {
         Cookies.set('adminJwtToken', data.jwtToken, { expires: 3 });
 
+        // Hide the loader before navigating
+        setLoading(false);
+
         // Navigate to Admin Dashboard
         navigate('/admin/dashboard'); 
       } else {
+        setLoading(false);
         toast.error(data.message || 'Invalid login credentials', { position: 'top-right', autoClose: 3000 });
       }
     } catch (error) {
       console.error(error);
-      toast.error('Something went wrong! Please try again.', { position: 'top-right', autoClose: 3000 });
-    } finally {
       setLoading(false);
+      toast.error('Something went wrong! Please try again.', { position: 'top-right', autoClose: 3000 });
     }
   };
 

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const navigate=useNavigate();
   return (
-    <div  id="login"className="bg-gray-50 h-[300px] flex flex-col justify-start items-start pl-8 pr-8 pt-8">
+    <div  id="login"className="bg-gray-50  flex flex-col justify-start items-start pl-8 pr-8 pt-8">
       <h1 className="text-2xl  text-left  text-red-600 mb-6">
         Choose Your Login
       </h1>

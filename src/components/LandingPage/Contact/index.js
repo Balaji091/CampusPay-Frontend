@@ -1,56 +1,80 @@
-import React from 'react';
-import { FaWhatsapp, FaFacebook, FaInstagram, FaPhone } from 'react-icons/fa';
+import React from "react";
+import { FaWhatsapp, FaFacebook, FaInstagram, FaPhone, FaEnvelope } from "react-icons/fa";
 
-function Contact() {
+const Contact = () => {
   return (
-    <section className="py-16 bg-gray-50">
+    <section  id="contact" className="py-16 bg-gray-90 ">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        {/* Section Header */}
-        {/* <h1 className="text-3xl font-semibold text-gray-900 mb-6">Contact Us</h1> */}
-        <h2 className="text-lg text-gray-700 mb-8">
-          If you have any queries, feel free to contact us through the following channels
-        </h2>
+        {/* Heading */}
+        <h1 className="text-2xl  text-left  text-red-600 ml-8 mb-6">
+          Contact Us
+        </h1>
+      
 
-        {/* Social Media Icons */}
-        <div className="flex justify-center space-x-6 py-8">
-          {/* WhatsApp Icon */}
-          <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
-            <button className="p-4 rounded-full bg-green-500 hover:bg-green-600 transition duration-300 ease-in-out text-white shadow-lg transform hover:scale-105">
-              <FaWhatsapp size={28} />
-            </button>
-          </a>
+        {/* Contact Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* WhatsApp */}
+          <div className="flex flex-col items-center p-6 bg-white shadow-lg rounded-xl transition transform hover:scale-105">
+            <FaWhatsapp size={40} className="text-green-500 mb-4" />
+            <h2 className="text-lg font-semibold text-gray-700">WhatsApp</h2>
+            <p className="text-sm text-gray-500 mb-4">Chat with us instantly</p>
+            <a
+              href="https://wa.me/1234567890"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-600 font-semibold hover:underline"
+            >
+              Message Now
+            </a>
+          </div>
 
-          {/* Phone Call Icon */}
-          <a href="tel:+1234567890" target="_blank" rel="noopener noreferrer">
-            <button className="p-4 rounded-full bg-blue-500 hover:bg-blue-600 transition duration-300 ease-in-out text-white shadow-lg transform hover:scale-105">
-              <FaPhone size={28} />
-            </button>
-          </a>
+          {/* Phone */}
+          <div className="flex flex-col items-center p-6 bg-white shadow-lg rounded-xl transition transform hover:scale-105">
+            <FaPhone size={40} className="text-blue-500 mb-4" />
+            <h2 className="text-lg font-semibold text-gray-700">Call Us</h2>
+            <p className="text-sm text-gray-500 mb-4">Available 9 AM - 6 PM</p>
+            <a href="tel:+1234567890" className="text-blue-600 font-semibold hover:underline">
+              +123 456 7890
+            </a>
+          </div>
 
-          {/* Facebook Icon */}
+          {/* Email */}
+          <div className="flex flex-col items-center p-6 bg-white shadow-lg rounded-xl transition transform hover:scale-105">
+            <FaEnvelope size={40} className="text-red-500 mb-4" />
+            <h2 className="text-lg font-semibold text-gray-700">Email Us</h2>
+            <p className="text-sm text-gray-500 mb-4">We respond within 24 hours</p>
+            <a href="mailto:support@example.com" className="text-red-600 font-semibold hover:underline">
+              support@example.com
+            </a>
+          </div>
+        </div>
+
+        {/* Social Icons */}
+        <div className="flex justify-center space-x-6 mt-12">
+          {/* Facebook */}
           <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-            <button className="p-4 rounded-full bg-blue-700 hover:bg-blue-800 transition duration-300 ease-in-out text-white shadow-lg transform hover:scale-105">
+            <button className="p-4 rounded-full bg-blue-700 hover:bg-blue-800 text-white shadow-lg transform hover:scale-110 transition">
               <FaFacebook size={28} />
             </button>
           </a>
 
-          {/* Instagram Icon */}
+          {/* Instagram */}
           <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-            <button className="p-4 rounded-full bg-pink-500 hover:bg-pink-600 transition duration-300 ease-in-out text-white shadow-lg transform hover:scale-105">
+            <button className="p-4 rounded-full bg-pink-500 hover:bg-pink-600 text-white shadow-lg transform hover:scale-110 transition">
               <FaInstagram size={28} />
             </button>
           </a>
         </div>
-        
-        {/* Optional footer */}
+
+        {/* Footer Text */}
         <div className="mt-8">
-          <p className="text-sm text-gray-600 max-w-md mx-auto">
-            We are here to assist you with any inquiries. Connect with us through the above channels for quick support.
+          <p className="text-sm text-gray-600">
+            We're happy to assist you. Connect with us anytime!
           </p>
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default Contact;

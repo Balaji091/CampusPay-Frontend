@@ -3,7 +3,7 @@ import './App.css';
 import Home from './components/LandingPage/Home';
 import LoginForm from './components/LoginForm';
 import Signup from './components/SignUpForm';
-import UserHome from './components/UserComponents/UserHome';
+// import UserHome from './components/UserComponents/UserHome';
 import ProfileComponent from './components/UserComponents/UserProfile';
 import PaymentsHistoryComponent from './components/UserComponents/UserPaymentsHistory/PaymentsHistory';
 import PaymentsComponent from './components/UserComponents/UserPayments/Payments';
@@ -14,6 +14,10 @@ import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
 import { ToastContainer } from 'react-toastify'; // Import ToastContainer
 import AdminLoginForm from './components/AdminComponents/AdminLogin';
+import AdminDashBoard from './components/AdminComponents/AdminDashBoard';
+import StudentsTable from './components/AdminComponents/Students';
+import PaymentsTable from './components/AdminComponents/Payments';
+import AdminPaymentDetails from './components/AdminComponents/AdminPaymentDetails';
 
 function App() {
   return (
@@ -31,7 +35,13 @@ function App() {
         <Route path='/user/addPayment' element={<ProtectedRoute><UploadPaymentComponent /></ProtectedRoute>} />
         <Route path='/user/paymentsHistory' element={<ProtectedRoute><PaymentsHistoryComponent /></ProtectedRoute>} />
         <Route path='/user/profile' element={<ProtectedRoute><ProfileComponent /></ProtectedRoute>} />
-      </Routes>
+        <Route path='/admin/dashboard' element={<AdminDashBoard/>}/>
+        <Route path='/admin/students' element={<StudentsTable/>}/>
+        <Route path='/admin/payments' element={<PaymentsTable/>}/>
+        <Route path='/admin/payments/:paymentId' element={<AdminPaymentDetails/>}/>
+
+
+      </Routes> 
       <ToastContainer /> {/* Add ToastContainer to the app */}
     </div>
   );
