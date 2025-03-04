@@ -16,5 +16,5 @@ CampusPay is a student-friendly digital payment solution that simplifies transac
 
 ### Clone the repository  
 ```bash
-git clone https://github.com/Balaji091/studentsPaymentHub-Frontend.git
-cd studentsPaymentHub-Frontend
+git clone https://github.com/Balaji091/Campuspay-Frontend.git
+cd CampusPay-Frontend
